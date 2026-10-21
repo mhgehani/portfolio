@@ -4,211 +4,275 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mayur Gehani — Lead Software Engineer</title>
+<meta name="description" content="Lead Software Engineer building scalable backend and big data systems with Scala, Spark and AWS. 11+ years of experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F6F4EF;
-    --bg-line: #DAD5C8;
-    --ink: #1B2430;
-    --ink-soft: #5B6472;
-    --blue: #2E5C82;
-    --teal: #3E7C74;
-    --border: #C9C2B2;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #14181F; --bg-line: #232A35; --ink: #E8E9EA; --ink-soft: #9AA3AE;
-      --blue: #7FB1D9; --teal: #6FBBAF; --border: #2C3542;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #14181F; --bg-line: #232A35; --ink: #E8E9EA; --ink-soft: #9AA3AE;
-    --blue: #7FB1D9; --teal: #6FBBAF; --border: #2C3542;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body {
-    margin: 0;
-    background: linear-gradient(var(--bg-line) 1px, transparent 1px) 0 0 / 100% 32px, var(--bg);
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
-    line-height: 1.55;
-  }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 64px 24px 80px; }
-  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+:root{
+  --bg:#F6F7F9;--surface:#FFFFFF;--ink:#0D1117;--soft:#5A6372;--line:#E1E4EA;
+  --accent:#0A8F6A;--accent2:#2F5BEA;--glow:rgba(10,143,106,.14);--navbg:rgba(246,247,249,.82);
+  --head:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0E13;--surface:#121820;--ink:#EDF1F5;--soft:#98A2B0;--line:#212A35;
+  --accent:#3EE6B0;--accent2:#7DA2FF;--glow:rgba(62,230,176,.16);--navbg:rgba(10,14,19,.8)}}
+:root[data-theme="dark"]{
+  --bg:#0A0E13;--surface:#121820;--ink:#EDF1F5;--soft:#98A2B0;--line:#212A35;
+  --accent:#3EE6B0;--accent2:#7DA2FF;--glow:rgba(62,230,176,.16);--navbg:rgba(10,14,19,.8)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navbg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:50}
 
-  header.hero { margin-bottom: 56px; }
-  .role-line { font-size: 0.82rem; color: var(--teal); letter-spacing: 0.02em; margin: 0 0 18px; }
-  h1 { font-size: clamp(2.5rem, 7vw, 3.8rem); line-height: 1.04; margin: 0 0 20px; font-weight: 700; }
-  .lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 58ch; margin: 0 0 28px; }
-  .links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .links a {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--ink);
-    text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px;
-  }
-  .links a:hover, .links a:focus-visible { border-color: var(--blue); color: var(--blue); }
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--navbg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--head);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:.92rem}
+.navlinks a{text-decoration:none;color:var(--soft);transition:color .15s}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:transform .15s,box-shadow .15s,border-color .15s;cursor:pointer;font-family:var(--body)}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#04120D;box-shadow:0 8px 28px var(--glow)}
+.btn.small{padding:8px 16px;font-size:.85rem}
+.theme{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:1rem;line-height:1}
+@media(max-width:720px){.navlinks a:not(.btn){display:none}}
 
-  .stats {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    margin-bottom: 64px;
-  }
-  .stat { padding: 22px 18px 22px 0; }
-  .stat + .stat { padding-left: 18px; border-left: 1px solid var(--border); }
-  .stat-num { font-size: 1.9rem; font-weight: 600; line-height: 1.1; color: var(--blue); }
-  .stat-label { font-size: 0.82rem; color: var(--ink-soft); margin-top: 6px; }
+/* hero */
+.hero{position:relative;padding:110px 0 90px;overflow:hidden}
+.contours{position:absolute;right:-140px;top:-40px;width:760px;max-width:none;opacity:.5;pointer-events:none;color:var(--accent)}
+.contours use{vector-effect:non-scaling-stroke}
+.hero .wrap{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.78rem;color:var(--soft);padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);margin-bottom:28px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(2.8rem,8.4vw,6rem);line-height:.98;letter-spacing:-.035em;margin:0 0 26px;max-width:14ch}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:1.2rem;color:var(--soft);max-width:54ch;margin:0 0 36px}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
 
-  section { margin-bottom: 60px; }
-  h2 {
-    font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500;
-    color: var(--ink-soft); margin: 0 0 28px; display: flex; align-items: center; gap: 12px;
-  }
-  h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;background:var(--surface);padding:18px 0}
+.track{display:flex;gap:44px;width:max-content;animation:slide 38s linear infinite;font-family:var(--head);font-weight:700;font-size:1.25rem;color:var(--soft);white-space:nowrap}
+.track span::after{content:"✦";margin-left:44px;color:var(--accent);font-size:.8rem}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-  .job { padding: 26px 0; border-top: 1px solid var(--border); }
-  .job:last-child { border-bottom: 1px solid var(--border); }
-  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; }
-  .job-title { font-size: 1.15rem; font-weight: 600; margin: 0; }
-  .job-company { color: var(--blue); font-weight: 500; }
-  .job-dates { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); }
-  .job ul { margin: 14px 0 14px; padding-left: 18px; color: var(--ink-soft); }
-  .job li { margin-bottom: 6px; max-width: 66ch; }
-  .job li::marker { color: var(--teal); }
-  .job-tech { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--teal); margin: 0; }
+/* sections */
+section{padding:96px 0}
+.label{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.04em;margin:0 0 14px}
+h2{font-family:var(--head);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 20px;max-width:18ch}
+.sub{color:var(--soft);max-width:60ch;margin:0 0 44px;font-size:1.05rem}
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px 32px; }
-  .skill-group h3 { font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); margin: 0 0 8px; font-weight: 500; }
-  .skill-group p { margin: 0; font-size: 0.95rem; }
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 24px;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;inset:auto -30% -60% auto;width:160px;height:160px;border-radius:50%;background:var(--glow);filter:blur(30px)}
+.num{font-family:var(--head);font-weight:800;font-size:2.6rem;line-height:1;letter-spacing:-.03em;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin:10px 0 0;color:var(--soft);font-size:.92rem;position:relative;z-index:1}
 
-  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
-  .two-col h3 { font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); margin: 0 0 10px; font-weight: 500; }
-  .two-col p, .two-col li { margin: 0 0 6px; font-size: 0.95rem; }
-  .two-col ul { margin: 0; padding-left: 18px; }
-  .two-col li::marker { color: var(--teal); }
-  .muted { color: var(--ink-soft); }
+.focus{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card h3{font-family:var(--head);font-size:1.25rem;margin:0 0 10px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--soft);font-size:.96rem}
+.ico{font-size:1.5rem;margin-bottom:16px;display:block}
 
-  footer {
-    border-top: 1px solid var(--border); padding-top: 28px; display: flex;
-    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--ink-soft);
-  }
-  footer a { color: var(--blue); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+/* timeline */
+.timeline{position:relative;padding-left:34px;border-left:2px solid var(--line);margin-left:8px}
+.job{position:relative;margin-bottom:34px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px}
+.job::before{content:"";position:absolute;left:-44px;top:36px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--accent);box-shadow:0 0 0 5px var(--glow)}
+.job-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
+.job h3{font-family:var(--head);font-size:1.4rem;margin:0;letter-spacing:-.015em}
+.job h3 span{color:var(--accent)}
+.dates{font-family:var(--mono);font-size:.78rem;color:var(--soft)}
+.job ul{margin:16px 0;padding-left:20px;color:var(--soft)}
+.job li{margin-bottom:8px}
+.job li::marker{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.74rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--soft);background:var(--bg)}
 
-  @media (max-width: 520px) {
-    .wrap { padding: 48px 18px 64px; }
-    .stat, .stat + .stat { padding: 18px 0; border-left: 0; }
-    .stat + .stat { border-top: 1px solid var(--border); }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .stat:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--border); }
-    .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
-  }
+/* toolkit */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.tools .card h3{font-size:.8rem;font-family:var(--mono);font-weight:500;color:var(--accent);margin-bottom:16px}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.two ul{list-style:none;padding:0;margin:0}
+.two li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--soft)}
+.two li:last-child{border:0}
+.two li b{color:var(--ink);font-weight:600}
+
+/* contact */
+.contact{text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:80px 24px;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;top:-120px;width:420px;height:300px;transform:translateX(-50%);background:var(--glow);filter:blur(70px)}
+.contact>*{position:relative}
+.contact h2{margin:0 auto 18px;max-width:16ch}
+.contact .sub{margin:0 auto 32px}
+.contact .cta{justify-content:center}
+footer{padding:36px 0 48px;color:var(--soft);font-size:.85rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.track{animation:none}.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:600px){section{padding:68px 0}.hero{padding:72px 0 64px}.contours{width:520px;right:-200px}.job{padding:22px}.timeline{padding-left:24px}.job::before{left:-34px}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="hero">
-    <p class="role-line mono">LEAD SOFTWARE ENGINEER — SCALA · SPARK · AWS</p>
-    <h1>Mayur Gehani</h1>
-    <p class="lede">Backend and data engineer with 11+ years of experience, now building distributed geospatial data pipelines at scale. I take systems from requirements to production: pipeline architecture, performance tuning, and microservices on Kubernetes. Based in Mumbai, India.</p>
-    <div class="links">
-      <a href="mailto:mayurgehani7@gmail.com">mayurgehani7@gmail.com</a>
-      <a href="https://linkedin.com/in/mayurgehani">linkedin.com/in/mayurgehani</a>
-    </div>
-  </header>
-
-  <div class="stats">
-    <div class="stat"><div class="stat-num">11+</div><div class="stat-label">years building software</div></div>
-    <div class="stat"><div class="stat-num">18h → 3h</div><div class="stat-label">pipeline runtime, ~83% faster</div></div>
-    <div class="stat"><div class="stat-num">~4 TB</div><div class="stat-label">map data per continent-level run</div></div>
-    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">engineers mentored</div></div>
+<nav><div class="wrap">
+  <a class="logo" href="#top">mayur<span>.</span></a>
+  <div class="navlinks">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#toolkit">Toolkit</a>
+    <button class="theme" id="theme" aria-label="Toggle light and dark theme">◐</button>
+    <a class="btn small primary" href="#contact">Contact</a>
   </div>
+</div></nav>
 
-  <section>
-    <h2>Experience</h2>
-
-    <div class="job">
-      <div class="job-head">
-        <p class="job-title">Lead Software Engineer · <span class="job-company">HERE Technologies</span></p>
-        <span class="job-dates">Feb 2021 – Present</span>
-      </div>
-      <ul>
-        <li>Led the architecture of a big data pipeline platform processing ~4 TB of map data per continent-level run, with a ChangeSet component, Spark-based MapObject pipelines and a Validation Engine.</li>
-        <li>Cut EMR pipeline runtime from 18 hours to 3 hours by introducing a grid-level partitioning strategy, and eliminated out-of-memory failures through Spark and cluster tuning.</li>
-        <li>Build Scala/Spark microservices that parse large-scale map data and derive links for geospatial layers, shipped on Kubernetes via GitLab CI/CD with Spring Boot REST APIs.</li>
-        <li>Mentor 10+ engineers, review code daily, and join cross-team design reviews to flag impacts early.</li>
-      </ul>
-      <p class="job-tech">Scala · Java · Spark · AWS (S3, EMR, RDS) · Kubernetes · GitLab CI/CD · Spring Boot · GeoJSON</p>
+<header class="hero" id="top">
+  <svg class="contours" viewBox="0 0 800 600" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+    <defs><path id="c" d="M120 300C120 190 260 110 400 120C560 130 690 210 680 330C670 450 540 520 400 510C250 500 120 420 120 300Z"/></defs>
+    <use href="#c" transform="translate(400 300) scale(1.25) rotate(-8) translate(-400 -300)"/>
+    <use href="#c" transform="translate(400 300) scale(1.02) rotate(6) translate(-400 -300)"/>
+    <use href="#c" transform="translate(400 300) scale(.8) rotate(-14) translate(-400 -300)"/>
+    <use href="#c" transform="translate(400 300) scale(.6) rotate(10) translate(-400 -300)"/>
+    <use href="#c" transform="translate(400 300) scale(.4) rotate(-20) translate(-400 -300)"/>
+    <use href="#c" transform="translate(400 300) scale(.2) rotate(16) translate(-400 -300)"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow"><i></i>Mayur Gehani · Lead Software Engineer</div>
+    <h1>I build <em>scalable</em> backend and data systems.</h1>
+    <p class="lede">11+ years building backend and data platforms. Today I lead big data pipeline architecture at <b>HERE Technologies</b> with Scala, Spark and AWS, from design to production.</p>
+    <div class="cta">
+      <a class="btn primary" href="#experience">See my work ↓</a>
+      <a class="btn" href="mailto:mayurgehani7@gmail.com">Get in touch</a>
     </div>
+  </div>
+</header>
 
-    <div class="job">
-      <div class="job-head">
-        <p class="job-title">Associate, Technology · <span class="job-company">MSCI Inc.</span></p>
-        <span class="job-dates">Oct 2018 – Feb 2021</span>
-      </div>
+<div class="marquee" aria-hidden="true"><div class="track" id="track">
+  <span>Scala</span><span>Apache Spark</span><span>AWS</span><span>Kubernetes</span><span>Java</span><span>Spring Boot</span><span>Distributed Systems</span><span>Big Data</span><span>GitLab CI/CD</span><span>Microservices</span>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <p class="label rv">// ABOUT</p>
+  <h2 class="rv">Systems that scale, and hold up in production.</h2>
+  <p class="sub rv">I’ve taken systems from requirements to production across big data platforms, financial systems and banking infrastructure. I tune performance, lead architecture, and mentor the engineers around me.</p>
+  <div class="stats">
+    <div class="stat rv"><div class="num">11+</div><p>years building scalable software</p></div>
+    <div class="stat rv"><div class="num">18h → 3h</div><p>EMR pipeline runtime, about 83% faster</p></div>
+    <div class="stat rv"><div class="num">~4 TB</div><p>data processed per pipeline run</p></div>
+    <div class="stat rv"><div class="num">10+</div><p>engineers mentored</p></div>
+  </div>
+  <div class="focus">
+    <div class="card rv"><span class="ico">📊</span><h3>Data pipelines at scale</h3><p>Spark-based pipelines, validation engines and grid-level partitioning for very large datasets.</p></div>
+    <div class="card rv"><span class="ico">⚙️</span><h3>Backend and microservices</h3><p>Scala and Java services on Kubernetes with GitLab CI/CD, exposing data through Spring Boot REST APIs.</p></div>
+    <div class="card rv"><span class="ico">🤝</span><h3>Leadership and quality</h3><p>Daily code reviews, cross-team design reviews and mentoring that raise the bar for the whole team.</p></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <p class="label rv">// EXPERIENCE</p>
+  <h2 class="rv">Where I’ve built things.</h2>
+  <p class="sub rv">A decade of shipping, from banking and financial systems to big data platforms.</p>
+  <div class="timeline">
+
+    <article class="job rv">
+      <div class="job-top"><h3>Lead Software Engineer · <span>HERE Technologies</span></h3><span class="dates">Feb 2021 – Present</span></div>
       <ul>
-        <li>Built a new asset information tracking system from scratch, covering exchanges worldwide and handling 500K+ records.</li>
-        <li>Led planning, design and implementation of core modules: Data Onboarding, the Quality Check Engine and the Bulk Tool.</li>
-        <li>Supported deployments across lower environments and production, diagnosing and fixing defects.</li>
+        <li>Led architecture of a big data platform processing ~4 TB per run: ChangeSet, Spark data pipelines and a Validation Engine.</li>
+        <li>Cut EMR runtime from 18 hours to 3 hours with grid-level partitioning, and removed out-of-memory failures through Spark and cluster tuning.</li>
+        <li>Build Scala/Spark microservices that parse map data and derive links for geospatial layers, shipped on Kubernetes.</li>
+        <li>Mentor 10+ engineers, review code daily, and flag impacts early in cross-team design reviews.</li>
       </ul>
-      <p class="job-tech">Java · SQL · Spring Batch · Spring JDBC · Spring Boot · REST</p>
-    </div>
+      <div class="chips"><span class="chip">Scala</span><span class="chip">Java</span><span class="chip">Spark</span><span class="chip">AWS S3 · EMR · RDS</span><span class="chip">Kubernetes</span><span class="chip">GitLab CI/CD</span><span class="chip">Spring Boot</span><span class="chip">GeoJSON</span></div>
+    </article>
 
-    <div class="job">
-      <div class="job-head">
-        <p class="job-title">Software Engineer · <span class="job-company">L&amp;T Infotech (LTI)</span></p>
-        <span class="job-dates">Aug 2015 – Jun 2018</span>
-      </div>
+    <article class="job rv">
+      <div class="job-top"><h3>Associate, Technology · <span>MSCI Inc.</span></h3><span class="dates">Oct 2018 – Feb 2021</span></div>
       <ul>
-        <li>Built an automated health-check tool and monitoring dashboard for 10+ critical banking systems, including core services such as LDAP.</li>
-        <li>Cut root-cause analysis from ~3 hours to ~15 minutes per incident, and auto-remediated common failures like cache clears and service restarts.</li>
+        <li>Built an asset information tracking system from scratch, covering exchanges worldwide and 500K+ records.</li>
+        <li>Led design and implementation of core modules: Data Onboarding, the Quality Check Engine and the Bulk Tool.</li>
+        <li>Supported deployments across environments and fixed production defects.</li>
+      </ul>
+      <div class="chips"><span class="chip">Java</span><span class="chip">SQL</span><span class="chip">Spring Batch</span><span class="chip">Spring JDBC</span><span class="chip">Spring Boot</span><span class="chip">REST</span></div>
+    </article>
+
+    <article class="job rv">
+      <div class="job-top"><h3>Software Engineer · <span>L&amp;T Infotech (LTI)</span></h3><span class="dates">Aug 2015 – Jun 2018</span></div>
+      <ul>
+        <li>Built a health-check tool and monitoring dashboard for 10+ critical banking systems, including LDAP.</li>
+        <li>Cut root-cause analysis from ~3 hours to ~15 minutes per incident and auto-remediated common failures.</li>
         <li>Implemented an end-to-end CI/CD pipeline using open-source DevOps tooling.</li>
       </ul>
-      <p class="job-tech">Java · Spring MVC · JPA · SQL · REST · DevOps</p>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Spring MVC</span><span class="chip">JPA</span><span class="chip">SQL</span><span class="chip">REST</span><span class="chip">DevOps</span></div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="toolkit"><div class="wrap">
+  <p class="label rv">// TOOLKIT</p>
+  <h2 class="rv">What I build with.</h2>
+  <p class="sub rv">Daily drivers, plus the AI tools that speed up coding, testing and review.</p>
+  <div class="tools">
+    <div class="card rv"><h3>LANGUAGES</h3><div class="chips"><span class="chip">Scala</span><span class="chip">Java</span><span class="chip">SQL</span></div></div>
+    <div class="card rv"><h3>BIG DATA AND CLOUD</h3><div class="chips"><span class="chip">Apache Spark</span><span class="chip">AWS S3</span><span class="chip">EMR</span><span class="chip">RDS</span><span class="chip">Kubernetes</span><span class="chip">GitLab CI/CD</span></div></div>
+    <div class="card rv"><h3>BACKEND</h3><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Spring Batch</span><span class="chip">Spring JDBC</span><span class="chip">JPA</span><span class="chip">REST APIs</span><span class="chip">Microservices</span></div></div>
+    <div class="card rv"><h3>DATA AND TOOLS</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">GeoJSON</span><span class="chip">Splunk</span><span class="chip">Jira</span><span class="chip">Git</span></div></div>
+    <div class="card rv"><h3>AI-ASSISTED DEVELOPMENT</h3><div class="chips"><span class="chip">GitHub Copilot</span><span class="chip">AWS Kiro</span><span class="chip">Amazon Q Developer</span><span class="chip">Claude</span><span class="chip">Prompt Engineering</span></div></div>
+  </div>
+</div></section>
+
+<section id="credentials"><div class="wrap">
+  <p class="label rv">// CREDENTIALS</p>
+  <h2 class="rv">Education and recognition.</h2>
+  <div class="two" style="margin-top:36px">
+    <div class="card rv"><h3>Education</h3><ul><li><b>B.E. Computer Engineering</b><br>Gujarat Technological University · 2011 – 2015</li></ul></div>
+    <div class="card rv"><h3>Certifications and awards</h3><ul>
+      <li><b>Scala Language Professional</b> · Lightbend</li>
+      <li><b>Certified Ethical Hacking Expert</b> · TechDefence</li>
+      <li><b>“Beyond” Award</b> for driving innovation through automation · LTI</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding-top:20px"><div class="wrap">
+  <div class="contact rv">
+    <p class="label">// CONTACT</p>
+    <h2>Let’s build something reliable.</h2>
+    <p class="sub">Have a data platform, pipeline or backend challenge? I’d like to hear about it.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:mayurgehani7@gmail.com">mayurgehani7@gmail.com</a>
+      <a class="btn" href="https://linkedin.com/in/mayurgehani">LinkedIn ↗</a>
     </div>
-  </section>
+  </div>
+  <footer><span>© 2026 Mayur Gehani</span></footer>
+</div></section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group"><h3>Languages</h3><p>Scala, Java, SQL</p></div>
-      <div class="skill-group"><h3>Big data &amp; cloud</h3><p>Apache Spark, AWS (S3, EMR, RDS), Kubernetes, GitLab CI/CD</p></div>
-      <div class="skill-group"><h3>Backend</h3><p>Spring Boot, Spring MVC, Spring Batch, Spring JDBC, JPA, REST APIs, Microservices</p></div>
-      <div class="skill-group"><h3>Data &amp; tools</h3><p>PostgreSQL, Oracle, GeoJSON, Splunk, Jira, Git</p></div>
-      <div class="skill-group"><h3>AI-assisted development</h3><p>GitHub Copilot, AWS Kiro, Amazon Q Developer, Claude, Prompt Engineering</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education &amp; recognition</h2>
-    <div class="two-col">
-      <div>
-        <h3>Education</h3>
-        <p>B.E. Computer Engineering</p>
-        <p class="muted">Gujarat Technological University · 2011 – 2015</p>
-      </div>
-      <div>
-        <h3>Certifications &amp; awards</h3>
-        <ul>
-          <li>Scala Language Professional — Lightbend</li>
-          <li>Certified Ethical Hacking Expert — TechDefence</li>
-          <li>“Beyond” Award for driving innovation through automation — LTI</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>© 2026 Mayur Gehani</span>
-    <a href="mailto:mayurgehani7@gmail.com">Get in touch →</a>
-  </footer>
-
-</div>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var t=document.getElementById('track');t.innerHTML+=t.innerHTML;
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var n=dark?'light':'dark';root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}
+  });
+})();
+</script>
 </body>
 </html>
