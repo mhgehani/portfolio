@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mayur Gehani — Lead Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F4EF;
+    --bg-line: #DAD5C8;
+    --ink: #1B2430;
+    --ink-soft: #5B6472;
+    --blue: #2E5C82;
+    --teal: #3E7C74;
+    --border: #C9C2B2;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181F; --bg-line: #232A35; --ink: #E8E9EA; --ink-soft: #9AA3AE;
+      --blue: #7FB1D9; --teal: #6FBBAF; --border: #2C3542;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181F; --bg-line: #232A35; --ink: #E8E9EA; --ink-soft: #9AA3AE;
+    --blue: #7FB1D9; --teal: #6FBBAF; --border: #2C3542;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: linear-gradient(var(--bg-line) 1px, transparent 1px) 0 0 / 100% 32px, var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 64px 24px 80px; }
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+  header.hero { margin-bottom: 56px; }
+  .role-line { font-size: 0.82rem; color: var(--teal); letter-spacing: 0.02em; margin: 0 0 18px; }
+  h1 { font-size: clamp(2.5rem, 7vw, 3.8rem); line-height: 1.04; margin: 0 0 20px; font-weight: 700; }
+  .lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 58ch; margin: 0 0 28px; }
+  .links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .links a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px;
+  }
+  .links a:hover, .links a:focus-visible { border-color: var(--blue); color: var(--blue); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+  .stat { padding: 22px 18px 22px 0; }
+  .stat + .stat { padding-left: 18px; border-left: 1px solid var(--border); }
+  .stat-num { font-size: 1.9rem; font-weight: 600; line-height: 1.1; color: var(--blue); }
+  .stat-label { font-size: 0.82rem; color: var(--ink-soft); margin-top: 6px; }
+
+  section { margin-bottom: 60px; }
+  h2 {
+    font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    color: var(--ink-soft); margin: 0 0 28px; display: flex; align-items: center; gap: 12px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+  .job { padding: 26px 0; border-top: 1px solid var(--border); }
+  .job:last-child { border-bottom: 1px solid var(--border); }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; }
+  .job-title { font-size: 1.15rem; font-weight: 600; margin: 0; }
+  .job-company { color: var(--blue); font-weight: 500; }
+  .job-dates { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); }
+  .job ul { margin: 14px 0 14px; padding-left: 18px; color: var(--ink-soft); }
+  .job li { margin-bottom: 6px; max-width: 66ch; }
+  .job li::marker { color: var(--teal); }
+  .job-tech { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--teal); margin: 0; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px 32px; }
+  .skill-group h3 { font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); margin: 0 0 8px; font-weight: 500; }
+  .skill-group p { margin: 0; font-size: 0.95rem; }
+
+  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+  .two-col h3 { font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); margin: 0 0 10px; font-weight: 500; }
+  .two-col p, .two-col li { margin: 0 0 6px; font-size: 0.95rem; }
+  .two-col ul { margin: 0; padding-left: 18px; }
+  .two-col li::marker { color: var(--teal); }
+  .muted { color: var(--ink-soft); }
+
+  footer {
+    border-top: 1px solid var(--border); padding-top: 28px; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--ink-soft);
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 48px 18px 64px; }
+    .stat, .stat + .stat { padding: 18px 0; border-left: 0; }
+    .stat + .stat { border-top: 1px solid var(--border); }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--border); }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="role-line mono">LEAD SOFTWARE ENGINEER — SCALA · SPARK · AWS</p>
+    <h1>Mayur Gehani</h1>
+    <p class="lede">Backend and data engineer with 11+ years of experience, now building distributed geospatial data pipelines at scale. I take systems from requirements to production: pipeline architecture, performance tuning, and microservices on Kubernetes. Based in Mumbai, India.</p>
+    <div class="links">
+      <a href="mailto:mayurgehani7@gmail.com">mayurgehani7@gmail.com</a>
+      <a href="https://linkedin.com/in/mayurgehani">linkedin.com/in/mayurgehani</a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">11+</div><div class="stat-label">years building software</div></div>
+    <div class="stat"><div class="stat-num">18h → 3h</div><div class="stat-label">pipeline runtime, ~83% faster</div></div>
+    <div class="stat"><div class="stat-num">~4 TB</div><div class="stat-label">map data per continent-level run</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">engineers mentored</div></div>
+  </div>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Lead Software Engineer · <span class="job-company">HERE Technologies</span></p>
+        <span class="job-dates">Feb 2021 – Present</span>
+      </div>
+      <ul>
+        <li>Led the architecture of a big data pipeline platform processing ~4 TB of map data per continent-level run, with a ChangeSet component, Spark-based MapObject pipelines and a Validation Engine.</li>
+        <li>Cut EMR pipeline runtime from 18 hours to 3 hours by introducing a grid-level partitioning strategy, and eliminated out-of-memory failures through Spark and cluster tuning.</li>
+        <li>Build Scala/Spark microservices that parse large-scale map data and derive links for geospatial layers, shipped on Kubernetes via GitLab CI/CD with Spring Boot REST APIs.</li>
+        <li>Mentor 10+ engineers, review code daily, and join cross-team design reviews to flag impacts early.</li>
+      </ul>
+      <p class="job-tech">Scala · Java · Spark · AWS (S3, EMR, RDS) · Kubernetes · GitLab CI/CD · Spring Boot · GeoJSON</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Associate, Technology · <span class="job-company">MSCI Inc.</span></p>
+        <span class="job-dates">Oct 2018 – Feb 2021</span>
+      </div>
+      <ul>
+        <li>Built a new asset information tracking system from scratch, covering exchanges worldwide and handling 500K+ records.</li>
+        <li>Led planning, design and implementation of core modules: Data Onboarding, the Quality Check Engine and the Bulk Tool.</li>
+        <li>Supported deployments across lower environments and production, diagnosing and fixing defects.</li>
+      </ul>
+      <p class="job-tech">Java · SQL · Spring Batch · Spring JDBC · Spring Boot · REST</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Software Engineer · <span class="job-company">L&amp;T Infotech (LTI)</span></p>
+        <span class="job-dates">Aug 2015 – Jun 2018</span>
+      </div>
+      <ul>
+        <li>Built an automated health-check tool and monitoring dashboard for 10+ critical banking systems, including core services such as LDAP.</li>
+        <li>Cut root-cause analysis from ~3 hours to ~15 minutes per incident, and auto-remediated common failures like cache clears and service restarts.</li>
+        <li>Implemented an end-to-end CI/CD pipeline using open-source DevOps tooling.</li>
+      </ul>
+      <p class="job-tech">Java · Spring MVC · JPA · SQL · REST · DevOps</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group"><h3>Languages</h3><p>Scala, Java, SQL</p></div>
+      <div class="skill-group"><h3>Big data &amp; cloud</h3><p>Apache Spark, AWS (S3, EMR, RDS), Kubernetes, GitLab CI/CD</p></div>
+      <div class="skill-group"><h3>Backend</h3><p>Spring Boot, Spring MVC, Spring Batch, Spring JDBC, JPA, REST APIs, Microservices</p></div>
+      <div class="skill-group"><h3>Data &amp; tools</h3><p>PostgreSQL, Oracle, GeoJSON, Splunk, Jira, Git</p></div>
+      <div class="skill-group"><h3>AI-assisted development</h3><p>GitHub Copilot, AWS Kiro, Amazon Q Developer, Claude, Prompt Engineering</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education &amp; recognition</h2>
+    <div class="two-col">
+      <div>
+        <h3>Education</h3>
+        <p>B.E. Computer Engineering</p>
+        <p class="muted">Gujarat Technological University · 2011 – 2015</p>
+      </div>
+      <div>
+        <h3>Certifications &amp; awards</h3>
+        <ul>
+          <li>Scala Language Professional — Lightbend</li>
+          <li>Certified Ethical Hacking Expert — TechDefence</li>
+          <li>“Beyond” Award for driving innovation through automation — LTI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Mayur Gehani</span>
+    <a href="mailto:mayurgehani7@gmail.com">Get in touch →</a>
+  </footer>
+
+</div>
+</body>
+</html>
